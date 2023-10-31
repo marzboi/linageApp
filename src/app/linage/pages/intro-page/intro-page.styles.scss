@@ -1,0 +1,24 @@
+div {
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  background-image: url("./../../../../assets/fondo-reliquia1.gif");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  .container {
+    color: white;
+    margin: 12rem auto;
+    text-align: center;
+    h1 {
+      font-family: "YoungSerif";
+      font-size: 7.5rem;
+      font-weight: bold;
+    }
+    h3 {
+      font-family: "Nunito", sans-serif;
+      font-size: 1.8rem;
+      margin: 0 30%;
+    }
+  }
+}
