@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IntroPageComponent } from './pages/intro-page/intro-page.component';
+import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 
 const routes: Routes = [
   {
     path: '',
     children: [
-      { path: 'intro', component: IntroPageComponent },
+      { path: 'intro', component: LayoutPageComponent },
       { path: '**', redirectTo: 'intro' },
     ],
   },
