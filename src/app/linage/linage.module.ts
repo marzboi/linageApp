@@ -5,9 +5,17 @@ import { LinageRoutingModule } from './linage-routing.module';
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { MessagePageComponent } from './pages/message-page/message-page.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
+import { InViewDirective } from './directive/in-view.directive';
 
 @NgModule({
-  declarations: [IntroPageComponent, LayoutPageComponent, MessagePageComponent, ContentPageComponent],
+  declarations: [
+    IntroPageComponent,
+    LayoutPageComponent,
+    MessagePageComponent,
+    ContentPageComponent,
+    InViewDirective,
+  ],
   imports: [CommonModule, LinageRoutingModule],
+  exports: [ContentPageComponent],
 })
 export class LinageModule {}
