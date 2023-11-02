@@ -1,0 +1,33 @@
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 6rem;
+  color: white;
+}
+
+.images {
+  position: relative;
+}
+
+.main-image {
+  width: 100%;
+  display: block;
+}
+
+.top-left {
+  position: absolute;
+  width: 30%;
+  top: 118px;
+  left: 40px;
+}
+
+.bottom-right {
+  position: absolute;
+  width: 30%;
+  bottom: 0;
+  right: 0;
+}

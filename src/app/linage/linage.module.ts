@@ -4,9 +4,10 @@ import { IntroPageComponent } from './pages/intro-page/intro-page.component';
 import { LinageRoutingModule } from './linage-routing.module';
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { MessagePageComponent } from './pages/message-page/message-page.component';
+import { ContentPageComponent } from './pages/content-page/content-page.component';
 
 @NgModule({
-  declarations: [IntroPageComponent, LayoutPageComponent, MessagePageComponent],
+  declarations: [IntroPageComponent, LayoutPageComponent, MessagePageComponent, ContentPageComponent],
   imports: [CommonModule, LinageRoutingModule],
 })
 export class LinageModule {}
