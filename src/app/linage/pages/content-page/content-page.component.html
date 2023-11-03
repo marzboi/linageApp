@@ -1,5 +1,5 @@
 <audio #myAudio src="assets/goofyy.mp3"></audio>
-<div class="images" appInView (inView)="consoleLogger()">
+<div class="images" appInView (inView)="onElementInView($event)">
   <div class="text">
     <h2>La cristiandad en mi familia</h2>
     <h3>Occidente entró en forma de religión cristiana</h3>
@@ -11,3 +11,5 @@
     <img class="bottom-right" src="assets/image5.png" alt="">
   </div>
 </div>
+
+<linage-audio-controller *ngIf="showAudioController" [title]="title"></linage-audio-controller>

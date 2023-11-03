@@ -11,7 +11,7 @@ import {
   selector: '[appInView]',
 })
 export class InViewDirective {
-  @Output() inView: EventEmitter<void> = new EventEmitter();
+  @Output() inView: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   private intersectionObserver: IntersectionObserver;
 
@@ -25,7 +25,9 @@ export class InViewDirective {
         this.ngZone.run(() => {
           entries.forEach((entry: IntersectionObserverEntry) => {
             if (entry.isIntersecting) {
-              this.inView.emit();
+              this.inView.emit(true);
+            } else {
+              this.inView.emit(false);
             }
           });
         });

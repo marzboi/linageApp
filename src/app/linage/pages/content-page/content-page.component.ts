@@ -6,9 +6,14 @@ import { Component, ElementRef, Renderer2 } from '@angular/core';
   styleUrls: ['./content-page.styles.scss'],
 })
 export class ContentPageComponent {
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  title = 'test';
+  audioSrc = 'assets/test.mp3';
+  showAudioController = false;
 
-  consoleLogger() {
-    console.log('I am on view, so now I can play audio');
+  onElementInView(isInView: boolean): void {
+    this.showAudioController = isInView;
+    if (isInView) {
+      this.showAudioController = true;
+    }
   }
 }

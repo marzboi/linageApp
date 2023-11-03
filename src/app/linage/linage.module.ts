@@ -5,7 +5,8 @@ import { LinageRoutingModule } from './linage-routing.module';
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { MessagePageComponent } from './pages/message-page/message-page.component';
 import { ContentPageComponent } from './pages/content-page/content-page.component';
-import { InViewDirective } from './directive/in-view.directive';
+import { InViewDirective } from './directives/in-view.directive';
+import { AudioControllerComponent } from './components/audio-controller/audio-controller.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { InViewDirective } from './directive/in-view.directive';
     MessagePageComponent,
     ContentPageComponent,
     InViewDirective,
+    AudioControllerComponent,
   ],
   imports: [CommonModule, LinageRoutingModule],
   exports: [ContentPageComponent],
