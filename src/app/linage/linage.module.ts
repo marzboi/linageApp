@@ -7,6 +7,7 @@ import { MessagePageComponent } from './pages/message-page/message-page.componen
 import { ContentPageComponent } from './pages/content-page/content-page.component';
 import { InViewDirective } from './directives/in-view.directive';
 import { AudioControllerComponent } from './components/audio-controller/audio-controller.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { AudioControllerComponent } from './components/audio-controller/audio-co
     InViewDirective,
     AudioControllerComponent,
   ],
-  imports: [CommonModule, LinageRoutingModule],
+  imports: [CommonModule, LinageRoutingModule, MatIconModule],
   exports: [ContentPageComponent],
 })
 export class LinageModule {}

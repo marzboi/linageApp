@@ -1,4 +1,3 @@
-<audio #myAudio src="assets/goofyy.mp3"></audio>
 <div class="images" appInView (inView)="onElementInView($event)">
   <div class="text">
     <h2>La cristiandad en mi familia</h2>
@@ -10,6 +9,7 @@
     <img class="main-image" src="assets/image9.png" alt="">
     <img class="bottom-right" src="assets/image5.png" alt="">
   </div>
+
 </div>
 
-<linage-audio-controller *ngIf="showAudioController" [title]="title"></linage-audio-controller>
+<linage-audio-controller *ngIf="showAudioController"></linage-audio-controller>

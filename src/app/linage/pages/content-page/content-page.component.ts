@@ -1,4 +1,4 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'linage-content-page',
@@ -6,8 +6,6 @@ import { Component, ElementRef, Renderer2 } from '@angular/core';
   styleUrls: ['./content-page.styles.scss'],
 })
 export class ContentPageComponent {
-  title = 'test';
-  audioSrc = 'assets/test.mp3';
   showAudioController = false;
 
   onElementInView(isInView: boolean): void {

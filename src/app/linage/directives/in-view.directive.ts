@@ -26,9 +26,10 @@ export class InViewDirective {
           entries.forEach((entry: IntersectionObserverEntry) => {
             if (entry.isIntersecting) {
               this.inView.emit(true);
-            } else {
-              this.inView.emit(false);
             }
+            // else {
+            //   this.inView.emit(false);
+            // }
           });
         });
       },
