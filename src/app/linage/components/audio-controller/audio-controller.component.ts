@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 
 interface AudioTrack {
+  number: string;
   title: string;
   url: string;
 }
@@ -23,10 +24,12 @@ export class AudioControllerComponent {
 
   tracks: AudioTrack[] = [
     {
+      number: '01',
       title: 'This is track 1',
       url: 'assets/track1.mp3',
     },
     {
+      number: '02',
       title: 'this is now track 2',
       url: 'assets/track2.mp3',
     },

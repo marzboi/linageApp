@@ -1,10 +1,19 @@
 div {
   display: flex;
   flex-direction: column;
-  text-align: center;
   color: white;
   margin: 3rem auto;
   .text {
+    h2 {
+      font-family: "YoungSerif";
+      font-size: 3rem;
+      font-weight: bold;
+      margin: 1rem;
+    }
+
+    h3 {
+      margin: 1rem;
+    }
   }
 
   .images {
@@ -17,16 +26,26 @@ div {
 
     .top-left {
       width: 30%;
+      position: absolute;
+      top: -6rem;
+      left: 2.2rem;
     }
 
     .bottom-right {
-      width: 40%;
+      width: 45%;
+      position: absolute;
+      bottom: -8rem;
+      right: 2.2rem;
     }
   }
 
   .audio-title {
     margin: 1rem;
+    margin-top: 8rem;
     h3 {
+      font-weight: lighter;
+      font-size: 1.3rem;
+      text-align: center;
       padding: 1rem;
       background-color: white;
       color: black;
