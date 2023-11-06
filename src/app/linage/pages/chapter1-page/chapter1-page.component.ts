@@ -16,4 +16,8 @@ export class Chapter1PageComponent {
       this.emitted = true;
     }
   }
+
+  handleEmit() {
+    this.onTrackChange.emit(this.pageIndex);
+  }
 }

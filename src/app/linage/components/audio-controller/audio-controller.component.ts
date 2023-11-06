@@ -19,6 +19,7 @@ interface AudioTrack {
 export class AudioControllerComponent {
   @Input() index?: number;
   @ViewChild('audioPlayer') audioPlayerRef?: ElementRef;
+  audioPlaying: boolean = false;
 
   tracks: AudioTrack[] = [
     {
@@ -27,7 +28,7 @@ export class AudioControllerComponent {
     },
     {
       title: 'this is now track 2',
-      url: 'track2',
+      url: 'assets/track2.mp3',
     },
   ];
 
@@ -53,9 +54,10 @@ export class AudioControllerComponent {
     if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
       audio.load();
-      audio.play().catch((e) => {
-        console.error('Error when trying to play audio:', e);
-      });
+      audio
+        .play()
+        .then(() => (this.audioPlaying = true))
+        .catch(() => (this.audioPlaying = false));
     }
   }
 }
