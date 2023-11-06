@@ -1,3 +1,4 @@
 <linage-intro-page></linage-intro-page>
 <linage-message-page></linage-message-page>
-<linage-content-page></linage-content-page>
+<linage-content-page appInView (inView)="onElementInView($event)"></linage-content-page>
+<linage-audio-controller *ngIf="showAudioController"></linage-audio-controller>

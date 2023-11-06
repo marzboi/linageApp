@@ -1,14 +1,21 @@
 <div class="body">
   <div class="media-player">
-    <div class="title">Test: Testing</div>
+    <div class="title">Title: {{currentTrack.title}}</div>
     <div class="progress-bar"></div>
     <div class="timestamp"></div>
     <div class="controls">
-      <mat-icon class="control-button">fast_rewind</mat-icon><span>Anterior</span>
-      <mat-icon class="play-button">play_circle_outline</mat-icon>
-      <span>Siguiente</span><mat-icon class="control-button">fast_forward</mat-icon>
+      <div>
+        <mat-icon class=action>fast_rewind</mat-icon><span>Anterior</span>
+      </div>
+
+      <div>
+        <mat-icon class="play">play_circle_outline</mat-icon>
+      </div>
+
+      <div>
+        <span>Siguiente</span><mat-icon class=action>fast_forward</mat-icon>
+      </div>
     </div>
-    <audio></audio>
+    <audio [src]="currentTrack.url"></audio>
   </div>
 </div>
-0
