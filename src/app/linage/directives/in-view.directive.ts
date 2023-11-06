@@ -28,7 +28,7 @@ export class InViewDirective {
           });
         });
       },
-      { threshold: 0.5 }
+      { threshold: 1 }
     );
   }
 

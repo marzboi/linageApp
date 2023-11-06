@@ -23,7 +23,7 @@ export class AudioControllerComponent {
   tracks: AudioTrack[] = [
     {
       title: 'Track 1',
-      url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
+      url: 'assets/goofyy.mp3',
     },
     {
       title: 'Track 2',
@@ -31,24 +31,28 @@ export class AudioControllerComponent {
     },
   ];
 
-  currentTrack: AudioTrack = this.tracks[0];
+  currentTrack?: AudioTrack;
 
-  receiveIndex(index: number) {
-    this.currentTrack = this.tracks[index];
-    console.log('hola!');
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['index']) {
-      if (this.index != null) {
-        this.currentTrack = this.tracks[this.index];
-        this.playTrack();
-      }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['index'] && changes['index'].currentValue !== undefined) {
+      setTimeout(() => {
+        this.selectTrack(changes['index'].currentValue);
+      }, 500);
     }
   }
 
-  playTrack() {
-    const audio = new Audio(this.currentTrack.url);
-    audio.play().catch((error) => console.error('Error playing audio:', error));
+  selectTrack(index: number): void {
+    this.currentTrack = this.tracks[index];
+    this.playAudio();
+  }
+
+  playAudio(): void {
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
+      audio.load();
+      audio.play().catch((e) => {
+        console.error('Error when trying to play audio:', e);
+      });
+    }
   }
 }
