@@ -1,5 +1,11 @@
 <linage-intro-page></linage-intro-page>
+
 <linage-message-page></linage-message-page>
-<linage-content-page appInView (inView)="onElementInView($event)"
-  (onTrackChange)="setCurrentTrackIndex($event)"></linage-content-page>
+
+<linage-chapter1-page appInView (inView)="onElementInView($event)"
+  (onTrackChange)="setCurrentTrackIndex($event)"></linage-chapter1-page>
+
+<linage-chapter2-page appInView (inView)="onElementInView($event)"
+  (onTrackChange)="setCurrentTrackIndex($event)"></linage-chapter2-page>
+
 <linage-audio-controller *ngIf="showAudioController" [index]="currentTrackIndex"></linage-audio-controller>

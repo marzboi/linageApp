@@ -1,0 +1,36 @@
+div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  margin: 3rem auto;
+  .text {
+  }
+
+  .images {
+    position: relative;
+
+    .main-image {
+      width: 100%;
+      display: block;
+    }
+
+    .top-left {
+      width: 30%;
+    }
+
+    .bottom-right {
+      width: 40%;
+    }
+  }
+
+  .audio-title {
+    margin: 1rem;
+    h3 {
+      padding: 1rem;
+      background-color: white;
+      color: black;
+      border-radius: 0.5rem;
+    }
+  }
+}

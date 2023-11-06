@@ -22,28 +22,31 @@ export class AudioControllerComponent {
 
   tracks: AudioTrack[] = [
     {
-      title: 'Track 1',
-      url: 'assets/goofyy.mp3',
+      title: 'This is track 1',
+      url: 'assets/track1.mp3',
     },
     {
-      title: 'Track 2',
-      url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
+      title: 'this is now track 2',
+      url: 'track2',
     },
   ];
 
   currentTrack?: AudioTrack;
 
+  ngOnInit(): void {
+    if (this.index === undefined && this.tracks.length > 0) {
+      this.selectTrack(0);
+    }
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['index'] && changes['index'].currentValue !== undefined) {
-      setTimeout(() => {
-        this.selectTrack(changes['index'].currentValue);
-      }, 500);
+      this.selectTrack(changes['index'].currentValue);
     }
   }
 
   selectTrack(index: number): void {
     this.currentTrack = this.tracks[index];
-    this.playAudio();
   }
 
   playAudio(): void {
