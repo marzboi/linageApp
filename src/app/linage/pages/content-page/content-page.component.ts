@@ -7,13 +7,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class ContentPageComponent {
   @Output() onTrackChange: EventEmitter<number> = new EventEmitter<number>();
-  showAudioController = false;
   private pageIndex: number = 0;
 
-  onElementInView(isInView: boolean): void {
-    this.showAudioController = isInView;
+  sendPageIndex(isInView: boolean) {
     if (isInView) {
-      this.showAudioController = true;
       this.onTrackChange.emit(this.pageIndex);
     }
   }

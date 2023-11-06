@@ -1,7 +1,6 @@
 import {
   Directive,
   ElementRef,
-  Renderer2,
   NgZone,
   Output,
   EventEmitter,
@@ -15,11 +14,7 @@ export class InViewDirective {
 
   private intersectionObserver: IntersectionObserver;
 
-  constructor(
-    private el: ElementRef,
-    private renderer: Renderer2,
-    private ngZone: NgZone
-  ) {
+  constructor(private el: ElementRef, private ngZone: NgZone) {
     this.intersectionObserver = new IntersectionObserver(
       (entries) => {
         this.ngZone.run(() => {

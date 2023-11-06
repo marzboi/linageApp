@@ -35,6 +35,7 @@ export class AudioControllerComponent {
 
   receiveIndex(index: number) {
     this.currentTrack = this.tracks[index];
+    console.log('hola!');
   }
 
   ngOnChanges(changes: SimpleChanges) {

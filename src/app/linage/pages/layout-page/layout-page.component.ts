@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-layout',
@@ -7,10 +7,14 @@ import { Component } from '@angular/core';
 })
 export class LayoutPageComponent {
   showAudioController = false;
+  currentTrackIndex?: number;
+
   onElementInView(isInView: boolean): void {
     this.showAudioController = isInView;
-    if (isInView) {
-      this.showAudioController = true;
-    }
+  }
+
+  setCurrentTrackIndex(index: number): void {
+    this.currentTrackIndex = index;
+    console.log('currentTrackIndex', this.currentTrackIndex);
   }
 }
