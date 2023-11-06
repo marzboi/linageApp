@@ -1,6 +1,7 @@
 <linage-intro-page></linage-intro-page>
 
-<linage-message-page></linage-message-page>
+<linage-message-page appInView (inView)="onElementInView($event)"
+  (onTrackChange)="setCurrentTrackIndex($event)"></linage-message-page>
 
 <linage-chapter1-page appInView (inView)="onElementInView($event)"
   (onTrackChange)="setCurrentTrackIndex($event)"></linage-chapter1-page>

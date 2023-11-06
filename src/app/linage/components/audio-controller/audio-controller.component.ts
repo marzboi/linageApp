@@ -26,12 +26,17 @@ export class AudioControllerComponent {
     {
       number: '01',
       title: 'This is track 1',
-      url: 'assets/track1.mp3',
+      url: 'assets/01.wav',
     },
     {
       number: '02',
       title: 'this is now track 2',
-      url: 'assets/track2.mp3',
+      url: 'assets/02.wav',
+    },
+    {
+      number: '01',
+      title: 'This is track 3',
+      url: 'assets/03.WAV',
     },
   ];
 
