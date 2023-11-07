@@ -1,7 +1,6 @@
 import {
   Component,
   ElementRef,
-  HostListener,
   Input,
   SimpleChanges,
   ViewChild,
@@ -21,8 +20,8 @@ interface AudioTrack {
 export class AudioControllerComponent {
   @Input() index?: number;
   @ViewChild('audioPlayer') audioPlayerRef?: ElementRef;
-  @ViewChild('progressBar') progressBarRef?: ElementRef;
   audioPlaying: boolean = false;
+  currentTime: number = 0;
 
   tracks: AudioTrack[] = [
     {
@@ -64,7 +63,6 @@ export class AudioControllerComponent {
   playAudio(): void {
     if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
-      audio.load();
       audio
         .play()
         .then(() => (this.audioPlaying = true))
@@ -77,6 +75,38 @@ export class AudioControllerComponent {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
       audio.pause();
       this.audioPlaying = false;
+    }
+  }
+
+  get currentTimes(): number {
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      return this.audioPlayerRef.nativeElement.currentTime;
+    }
+    return 0;
+  }
+
+  getDuration(): number {
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      return this.audioPlayerRef.nativeElement.duration;
+    }
+    return 0;
+  }
+
+  seekTo(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    const time = Number(target.value);
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
+      audio.currentTime = time;
+      if (!this.audioPlaying) {
+        this.playAudio();
+      }
+    }
+  }
+
+  updateProgress(): void {
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      this.currentTime = this.audioPlayerRef.nativeElement.currentTime;
     }
   }
 }

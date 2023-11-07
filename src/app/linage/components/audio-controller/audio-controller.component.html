@@ -2,6 +2,12 @@
   <div class="media-player" *ngIf="currentTrack">
     <div class="title">{{currentTrack.number}}: {{currentTrack.title}}</div>
 
+
+    <div class="progress-bar">
+      <input type="range" [value]="currentTimes" [max]="getDuration()" (change)="seekTo($event)" />
+
+    </div>
+
     <div class="controls">
       <div>
         <mat-icon class=action>fast_rewind</mat-icon><span>Anterior</span>
@@ -17,6 +23,7 @@
       </div>
     </div>
 
-    <audio #audioPlayer [src]="currentTrack.url"></audio>
+    <audio #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()"></audio>
+
   </div>
 </div>
