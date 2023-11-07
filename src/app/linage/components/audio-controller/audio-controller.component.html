@@ -2,11 +2,17 @@
   <div class="media-player" *ngIf="currentTrack">
     <div class="title">{{currentTrack.number}}: {{currentTrack.title}}</div>
 
+    <div class="bar">
+      <div class="progress-bar">
+        <input type="range" [value]="currentTimes" [max]="getDuration()" (change)="seekTo($event)" />
+      </div>
 
-    <div class="progress-bar">
-      <input type="range" [value]="currentTimes" [max]="getDuration()" (change)="seekTo($event)" />
-
+      <div class="timer">
+        {{ formatTime(currentTime) }} / {{ formatTime(duration) }}
+      </div>
     </div>
+
+
 
     <div class="controls">
       <div>
@@ -23,7 +29,9 @@
       </div>
     </div>
 
-    <audio #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()"></audio>
+    <audio #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()"
+      (loadedmetadata)="metadataLoaded()"></audio>
+
 
   </div>
 </div>

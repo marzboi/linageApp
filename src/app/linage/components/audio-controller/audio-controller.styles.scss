@@ -36,7 +36,19 @@
   }
 }
 
+.bar {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
 .progress-bar input[type="range"] {
   width: 100%;
   background: transparent;
+}
+
+.timer {
+  display: flex;
+  flex-direction: row-reverse;
 }
