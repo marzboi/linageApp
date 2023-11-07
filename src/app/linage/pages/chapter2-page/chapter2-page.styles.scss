@@ -2,25 +2,49 @@ div {
   background-color: white;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  margin: 3rem auto;
   .text {
+    margin: 3rem 6rem 6rem 3rem;
+    h2 {
+      font-family: "YoungSerif";
+      font-weight: bold;
+      margin-right: 4rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+      margin-right: 3rem;
+    }
   }
 
   .images {
+    position: relative;
     .main-image {
+      width: 100%;
+      display: block;
+      padding-left: 3rem;
     }
 
     .top-left {
+      width: 35%;
+      position: absolute;
+      top: -6rem;
+      left: 1.8rem;
     }
 
     .bottom-right {
+      width: 30%;
+      position: absolute;
+      bottom: -4rem;
+      right: 2.2rem;
     }
   }
 
   .audio-title {
-    margin: 1rem;
+    margin: 2rem;
+    margin-top: 8rem;
     h3 {
+      font-weight: lighter;
+      font-size: 1.3rem;
+      text-align: center;
       padding: 1rem;
       background-color: black;
       color: white;

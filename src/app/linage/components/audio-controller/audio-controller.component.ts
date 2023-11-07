@@ -24,19 +24,19 @@ export class AudioControllerComponent {
 
   tracks: AudioTrack[] = [
     {
-      number: '01',
-      title: 'This is track 1',
+      number: '00',
+      title: 'Intro',
       url: 'assets/01.wav',
     },
     {
-      number: '02',
-      title: 'this is now track 2',
+      number: '01',
+      title: 'La Cristiandad en mi familia',
       url: 'assets/02.wav',
     },
     {
-      number: '01',
+      number: '02',
       title: 'This is track 3',
-      url: 'assets/03.WAV',
+      url: 'assets/03.wav',
     },
   ];
 

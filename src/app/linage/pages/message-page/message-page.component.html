@@ -1,9 +1,13 @@
-<div appInView (inView)="sendPageIndex($event)">
+<div appInView>
   <div class="container">
     <mat-icon class="icon">error</mat-icon>
     <p>La investigación para esta pieza fue en su mayoría oral, es por eso que la voy a transmitir de forma oral
       también. Te
       recomiendo ponerte unos cascos para disfrutar de mi historia.</p>
     <p>Te recomiendo ponerte unos cascos y relajarte para disfrutar de la historia</p>
+  </div>
+
+  <div class="audio-title" (click)="handleEmit()">
+    <h3>Audio 00 Intro</h3>
   </div>
 </div>

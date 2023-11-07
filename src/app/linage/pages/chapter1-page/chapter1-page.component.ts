@@ -8,14 +8,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class Chapter1PageComponent {
   @Output() onTrackChange: EventEmitter<number> = new EventEmitter<number>();
   private pageIndex: number = 1;
-  emitted: boolean = false;
-
-  sendPageIndex(isInView: boolean) {
-    if (isInView && !this.emitted) {
-      this.onTrackChange.emit(this.pageIndex);
-      this.emitted = true;
-    }
-  }
 
   handleEmit() {
     this.onTrackChange.emit(this.pageIndex);

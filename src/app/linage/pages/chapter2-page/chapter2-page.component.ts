@@ -10,13 +10,6 @@ export class Chapter2PageComponent {
   private pageIndex: number = 2;
   emitted: boolean = false;
 
-  sendPageIndex(isInView: boolean) {
-    if (isInView && !this.emitted) {
-      this.onTrackChange.emit(this.pageIndex);
-      this.emitted = true;
-    }
-  }
-
   handleEmit() {
     this.onTrackChange.emit(this.pageIndex);
   }
