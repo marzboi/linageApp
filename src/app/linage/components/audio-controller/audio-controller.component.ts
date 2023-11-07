@@ -1,10 +1,10 @@
 import {
   Component,
   ElementRef,
-  HostListener,
   Input,
   SimpleChanges,
   ViewChild,
+  ChangeDetectorRef,
 } from '@angular/core';
 
 interface AudioTrack {
@@ -21,8 +21,11 @@ interface AudioTrack {
 export class AudioControllerComponent {
   @Input() index?: number;
   @ViewChild('audioPlayer') audioPlayerRef?: ElementRef;
-  @ViewChild('progressBar') progressBarRef?: ElementRef;
   audioPlaying: boolean = false;
+  currentTime: number = 0;
+  duration: number = 0;
+
+  constructor(private cdRef: ChangeDetectorRef) {}
 
   tracks: AudioTrack[] = [
     {
@@ -61,10 +64,16 @@ export class AudioControllerComponent {
     this.currentTrack = this.tracks[index];
   }
 
+  changeTrack(index: number): void {
+    if (index >= 0 && index < this.tracks.length) {
+      this.index = index;
+      this.selectTrack(index);
+    }
+  }
+
   playAudio(): void {
     if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
-      audio.load();
       audio
         .play()
         .then(() => (this.audioPlaying = true))
@@ -78,5 +87,59 @@ export class AudioControllerComponent {
       audio.pause();
       this.audioPlaying = false;
     }
+  }
+
+  get currentTimes(): number {
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      return this.audioPlayerRef.nativeElement.currentTime;
+    }
+    return 0;
+  }
+
+  getDuration(): number {
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      const duration = this.audioPlayerRef.nativeElement.duration;
+
+      if (isFinite(duration)) {
+        return duration;
+      }
+    }
+    return 0;
+  }
+
+  metadataLoaded(): void {
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      this.duration = this.audioPlayerRef.nativeElement.duration;
+      this.cdRef.detectChanges();
+    }
+  }
+
+  seekTo(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    const time = Number(target.value);
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
+      audio.currentTime = time;
+      if (!this.audioPlaying) {
+        this.playAudio();
+        this.audioPlaying = true;
+      }
+    }
+  }
+
+  updateProgress(): void {
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      this.currentTime = this.audioPlayerRef.nativeElement.currentTime;
+    }
+  }
+
+  formatTime(time: number): string {
+    const minutes: number = Math.floor(time / 60);
+    const seconds: number = Math.floor(time % 60);
+    return `${this.padZero(minutes)}:${this.padZero(seconds)}`;
+  }
+
+  padZero(number: number): string {
+    return number < 10 ? `0${number}` : number.toString();
   }
 }
