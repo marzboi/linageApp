@@ -1,21 +1,22 @@
 <div class="body">
   <div class="media-player" *ngIf="currentTrack">
     <div class="title">{{currentTrack.number}}: {{currentTrack.title}}</div>
-    <div class="progress-bar"></div>
-    <div class="timestamp"></div>
+
     <div class="controls">
       <div>
         <mat-icon class=action>fast_rewind</mat-icon><span>Anterior</span>
       </div>
 
       <div>
-        <mat-icon class="play" (click)="playAudio()">play_circle_outline</mat-icon>
+        <mat-icon class="play" (click)="playAudio()" *ngIf="!audioPlaying">play_circle_outline</mat-icon>
+        <mat-icon class="play" (click)="pauseAudio()" *ngIf="audioPlaying"> pause_circle_outline</mat-icon>
       </div>
 
       <div>
         <span>Siguiente</span><mat-icon class=action>fast_forward</mat-icon>
       </div>
     </div>
+
     <audio #audioPlayer [src]="currentTrack.url"></audio>
   </div>
 </div>

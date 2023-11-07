@@ -1,6 +1,7 @@
 import {
   Component,
   ElementRef,
+  HostListener,
   Input,
   SimpleChanges,
   ViewChild,
@@ -20,23 +21,24 @@ interface AudioTrack {
 export class AudioControllerComponent {
   @Input() index?: number;
   @ViewChild('audioPlayer') audioPlayerRef?: ElementRef;
+  @ViewChild('progressBar') progressBarRef?: ElementRef;
   audioPlaying: boolean = false;
 
   tracks: AudioTrack[] = [
     {
       number: '00',
       title: 'Intro',
-      url: 'assets/01.wav',
+      url: 'assets/01.mp3',
     },
     {
       number: '01',
       title: 'La Cristiandad en mi familia',
-      url: 'assets/02.wav',
+      url: 'assets/02.mp3',
     },
     {
       number: '02',
       title: 'This is track 3',
-      url: 'assets/03.wav',
+      url: 'assets/03.mp3',
     },
   ];
 
@@ -51,6 +53,7 @@ export class AudioControllerComponent {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['index'] && changes['index'].currentValue !== undefined) {
       this.selectTrack(changes['index'].currentValue);
+      this.audioPlaying = false;
     }
   }
 
@@ -66,6 +69,14 @@ export class AudioControllerComponent {
         .play()
         .then(() => (this.audioPlaying = true))
         .catch(() => (this.audioPlaying = false));
+    }
+  }
+
+  pauseAudio(): void {
+    if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
+      const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
+      audio.pause();
+      this.audioPlaying = false;
     }
   }
 }
