@@ -62,6 +62,7 @@ export class AudioControllerComponent {
 
   selectTrack(index: number): void {
     this.currentTrack = this.tracks[index];
+    this.audioPlaying = false;
   }
 
   changeTrack(index: number): void {
@@ -69,6 +70,7 @@ export class AudioControllerComponent {
     if (index >= 0 && index < this.tracks.length) {
       this.index = index;
       this.selectTrack(index);
+      this.audioPlaying = false;
     }
   }
 
@@ -128,9 +130,9 @@ export class AudioControllerComponent {
     if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
       audio.currentTime = time;
-      if (!this.audioPlaying) {
-        this.playAudio();
-      }
+      // if (!this.audioPlaying) {
+      //   this.playAudio();
+      // }
     }
   }
 
@@ -155,5 +157,10 @@ export class AudioControllerComponent {
       return (this.currentTime / this.duration) * 100;
     }
     return 0;
+  }
+
+  audioEnded(): void {
+    this.audioPlaying = false;
+    this.currentTime = 0;
   }
 }

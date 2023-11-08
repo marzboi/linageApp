@@ -29,8 +29,9 @@
       </div>
     </div>
 
-    <audio #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()"
-      (loadedmetadata)="metadataLoaded()"></audio>
+    <audio #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()" (loadedmetadata)="metadataLoaded()"
+      (ended)="audioEnded()"></audio>
+
 
   </div>
 </div>
