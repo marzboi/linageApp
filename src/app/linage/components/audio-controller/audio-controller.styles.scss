@@ -41,22 +41,21 @@
   flex-direction: column;
   width: 80%;
   margin: 0 auto;
-}
 
-.progress-bar-container {
-  width: 100%;
-  background: #555; /* Background of the unfilled progress bar */
-  cursor: pointer;
-  height: 1rem;
-}
+  .progress-bar-container {
+    width: 100%;
+    background: #555;
+    cursor: pointer;
+    height: 1rem;
+    .progress-bar-filled {
+      height: 1rem;
+      background: white;
+      width: 0%;
+    }
+  }
 
-.progress-bar-filled {
-  height: 1rem;
-  background: white; /* Color of the filled progress bar */
-  width: 0%; /* Initial width */
-}
-
-.timer {
-  display: flex;
-  flex-direction: row-reverse;
+  .timer {
+    display: flex;
+    flex-direction: row-reverse;
+  }
 }
