@@ -7,7 +7,7 @@ import { Component, Input } from '@angular/core';
 })
 export class LayoutPageComponent {
   showAudioController = false;
-  currentTrackIndex?: number;
+  currentTrackIndex: number = 0;
 
   onElementInView(isInView: boolean): void {
     this.showAudioController = isInView;

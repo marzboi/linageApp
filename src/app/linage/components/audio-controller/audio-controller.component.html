@@ -15,7 +15,7 @@
     </div>
 
     <div class="controls">
-      <div>
+      <div (click)="changeTrack(index - 1)">
         <mat-icon class=action>fast_rewind</mat-icon><span>Anterior</span>
       </div>
 
@@ -24,7 +24,7 @@
         <mat-icon class="play" (click)="pauseAudio()" *ngIf="audioPlaying"> pause_circle_outline</mat-icon>
       </div>
 
-      <div>
+      <div (click)="changeTrack(index + 1)">
         <span>Siguiente</span><mat-icon class=action>fast_forward</mat-icon>
       </div>
     </div>

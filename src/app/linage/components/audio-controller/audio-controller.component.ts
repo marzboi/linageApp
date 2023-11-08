@@ -19,7 +19,7 @@ interface AudioTrack {
   styleUrls: ['./audio-controller.styles.scss'],
 })
 export class AudioControllerComponent {
-  @Input() index?: number;
+  @Input() index: number = 0;
   @ViewChild('audioPlayer') audioPlayerRef?: ElementRef;
   audioPlaying: boolean = false;
   currentTime: number = 0;
@@ -65,6 +65,7 @@ export class AudioControllerComponent {
   }
 
   changeTrack(index: number): void {
+    console.log(this.index, 'principio');
     if (index >= 0 && index < this.tracks.length) {
       this.index = index;
       this.selectTrack(index);
