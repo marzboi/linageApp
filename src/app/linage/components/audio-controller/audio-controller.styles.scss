@@ -44,11 +44,15 @@
 
   .progress-bar-container {
     width: 100%;
-    background: #555;
+    border-radius: 1rem;
+    border: 1px solid white;
+    background: black;
     cursor: pointer;
-    height: 1rem;
+    height: 0.5rem;
     .progress-bar-filled {
-      height: 1rem;
+      height: 0.41rem;
+      border-radius: 1rem;
+      border: 1px solid white;
       background: white;
       width: 0%;
     }
