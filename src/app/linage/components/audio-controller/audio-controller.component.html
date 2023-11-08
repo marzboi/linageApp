@@ -3,16 +3,16 @@
     <div class="title">{{currentTrack.number}}: {{currentTrack.title}}</div>
 
     <div class="bar">
-      <div class="progress-bar">
-        <input type="range" [value]="currentTimes" [max]="getDuration()" (change)="seekTo($event)" />
+
+      <div class="progress-bar-container" (click)="seek($event)">
+        <div class="progress-bar-filled" [style.width]="getProgress() + '%'"></div>
       </div>
 
       <div class="timer">
         {{ formatTime(currentTime) }} / {{ formatTime(duration) }}
       </div>
+
     </div>
-
-
 
     <div class="controls">
       <div>
@@ -31,7 +31,6 @@
 
     <audio #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()"
       (loadedmetadata)="metadataLoaded()"></audio>
-
 
   </div>
 </div>

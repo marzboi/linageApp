@@ -114,15 +114,21 @@ export class AudioControllerComponent {
     }
   }
 
-  seekTo(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    const time = Number(target.value);
+  seek(event: MouseEvent): void {
+    const progressBar: HTMLElement = event.target as HTMLElement;
+    const bounds = progressBar.getBoundingClientRect();
+    const x = event.clientX - bounds.left;
+    const percentage = x / bounds.width;
+    const time = this.duration * percentage;
+    this.seekToTime(time);
+  }
+
+  seekToTime(time: number): void {
     if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
       audio.currentTime = time;
       if (!this.audioPlaying) {
         this.playAudio();
-        this.audioPlaying = true;
       }
     }
   }
@@ -141,5 +147,12 @@ export class AudioControllerComponent {
 
   padZero(number: number): string {
     return number < 10 ? `0${number}` : number.toString();
+  }
+
+  getProgress(): number {
+    if (this.duration > 0) {
+      return (this.currentTime / this.duration) * 100;
+    }
+    return 0;
   }
 }
