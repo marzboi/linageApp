@@ -1,0 +1,33 @@
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ff5757;
+  .icon {
+    scale: 2;
+  }
+  .container {
+    margin: 2rem;
+    p {
+      font-family: "Nunito", sans-serif;
+      margin: 10%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.7rem;
+    }
+  }
+
+  .audio-title {
+    margin: 2rem;
+    margin-top: 6rem;
+    h3 {
+      font-weight: lighter;
+      font-size: 1.3rem;
+      text-align: center;
+      padding: 1rem;
+      background-color: black;
+      color: white;
+      border-radius: 0.5rem;
+    }
+  }
+}
