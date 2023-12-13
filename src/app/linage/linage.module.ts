@@ -10,6 +10,7 @@ import { AudioControllerComponent } from './components/audio-controller/audio-co
 import { MatIconModule } from '@angular/material/icon';
 import { Chapter2PageComponent } from './pages/chapter2-page/chapter2-page.component';
 import { TempPageComponent } from './pages/temp-page/temp-page.component';
+import { TrackTitleComponent } from './components/track-title/track-title.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { TempPageComponent } from './pages/temp-page/temp-page.component';
     AudioControllerComponent,
     Chapter2PageComponent,
     TempPageComponent,
+    TrackTitleComponent,
   ],
   imports: [CommonModule, LinageRoutingModule, MatIconModule],
   exports: [Chapter1PageComponent],

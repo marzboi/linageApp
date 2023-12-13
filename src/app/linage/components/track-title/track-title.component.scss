@@ -1,0 +1,28 @@
+.number {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  hr {
+    width: 100px;
+    margin: 1rem;
+  }
+
+  h3 {
+    font-weight: lighter;
+    font-size: 1.3rem;
+    margin: 0;
+  }
+}
+
+.title {
+  margin: 2rem;
+  h3 {
+    margin: 0 auto;
+    font-weight: lighter;
+    text-align: center;
+    padding: 1rem;
+    background-color: white;
+    color: black;
+    border-radius: 0.5rem;
+  }
+}
