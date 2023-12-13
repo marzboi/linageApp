@@ -4,7 +4,7 @@ div {
   flex-direction: column;
   color: white;
   .text {
-    margin-bottom: 6.5rem;
+    margin-bottom: 1rem;
     h2 {
       font-family: "YoungSerif";
       font-size: 3rem;
@@ -17,32 +17,9 @@ div {
     }
   }
 
-  .images {
-    position: relative;
-
-    .main-image {
-      width: 100%;
-      display: block;
-    }
-
-    .top-left {
-      width: 30%;
-      position: absolute;
-      top: -6rem;
-      left: 2.2rem;
-    }
-
-    .bottom-right {
-      width: 45%;
-      position: absolute;
-      bottom: -8rem;
-      right: 2.2rem;
-    }
-  }
-
   .audio-title {
     margin: 2rem;
-    margin-top: 10rem;
+    margin-top: 1rem;
     h3 {
       font-weight: lighter;
       font-size: 1.3rem;
