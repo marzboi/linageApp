@@ -1,11 +1,11 @@
-div {
+.chapter-container {
   background-color: #2d2d2d;
   display: flex;
   flex-direction: column;
   color: white;
 
   .text {
-    margin-bottom: 1rem;
+    margin: 2rem 1rem 1rem 1rem;
     h2 {
       font-family: "YoungSerif";
       font-size: 3rem;
@@ -15,10 +15,6 @@ div {
     h3 {
       margin: 1rem;
     }
-  }
-
-  linage-track-title {
-    margin: 0 auto;
   }
 
   .images {
