@@ -24,6 +24,7 @@ export class AudioControllerComponent {
   audioPlaying: boolean = false;
   currentTime: number = 0;
   duration: number = 0;
+  minimized: boolean = false;
 
   constructor(private cdRef: ChangeDetectorRef) {}
 
@@ -46,6 +47,10 @@ export class AudioControllerComponent {
   ];
 
   currentTrack?: AudioTrack;
+
+  toggleMinimized(): void {
+    this.minimized = !this.minimized;
+  }
 
   ngOnInit(): void {
     if (this.index === undefined && this.tracks.length > 0) {

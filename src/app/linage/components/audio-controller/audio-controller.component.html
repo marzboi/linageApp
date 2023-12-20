@@ -1,4 +1,8 @@
-<div class="body">
+<div class="body" *ngIf="!minimized;else smallDisplay">
+  <div class="close" (click)="toggleMinimized()">
+    <span>Botton</span>
+  </div>
+
   <div class="media-player" *ngIf="currentTrack">
     <div class="title">{{currentTrack.number}}: {{currentTrack.title}}</div>
 
@@ -28,10 +32,21 @@
         <span>Siguiente</span><mat-icon class=action>fast_forward</mat-icon>
       </div>
     </div>
-
-    <audio #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()" (loadedmetadata)="metadataLoaded()"
-      (ended)="audioEnded()"></audio>
-
-
   </div>
 </div>
+
+<ng-template #smallDisplay>
+  <div class="body">
+    <div class="small" (click)="toggleMinimized()">
+      <span>Botton</span>
+    </div>
+
+    <div class="media-player" *ngIf="currentTrack">
+      <div class="title">{{currentTrack.number}}: {{currentTrack.title}}</div>
+    </div>
+  </div>
+</ng-template>
+
+
+<audio *ngIf="currentTrack" #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()"
+  (loadedmetadata)="metadataLoaded()" (ended)="audioEnded()"></audio>
