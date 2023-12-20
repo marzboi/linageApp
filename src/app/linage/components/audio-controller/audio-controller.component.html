@@ -1,9 +1,12 @@
-<div class="body">
+<div class="body" *ngIf="!minimized;else smallDisplay">
+  <div class="close" (click)="toggleMinimized()">
+    <span>Botton</span>
+  </div>
+
   <div class="media-player" *ngIf="currentTrack">
     <div class="title">{{currentTrack.number}}: {{currentTrack.title}}</div>
 
     <div class="bar">
-
       <div class="progress-bar-container" (click)="seek($event)">
         <div class="progress-bar-filled" [style.width]="getProgress() + '%'"></div>
       </div>
@@ -11,7 +14,6 @@
       <div class="timer">
         {{ formatTime(currentTime) }} / {{ formatTime(duration) }}
       </div>
-
     </div>
 
     <div class="controls">
@@ -28,10 +30,28 @@
         <span>Siguiente</span><mat-icon class=action>fast_forward</mat-icon>
       </div>
     </div>
-
-    <audio #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()" (loadedmetadata)="metadataLoaded()"
-      (ended)="audioEnded()"></audio>
-
-
   </div>
 </div>
+
+<ng-template #smallDisplay>
+
+  <div class="closed-body">
+    <div class="open" (click)="toggleMinimized()">
+      <span>Botton</span>
+    </div>
+
+    <div class="closed-media-player" *ngIf="currentTrack">
+      <div class="title">{{currentTrack.number}}: {{currentTrack.title}}</div>
+    </div>
+
+    <div>
+      <mat-icon class="closed-play" (click)="playAudio()" *ngIf="!audioPlaying">play_circle_outline</mat-icon>
+      <mat-icon class="closed-play" (click)="pauseAudio()" *ngIf="audioPlaying"> pause_circle_outline</mat-icon>
+    </div>
+  </div>
+
+</ng-template>
+
+
+<audio *ngIf="currentTrack" #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()"
+  (loadedmetadata)="metadataLoaded()" (ended)="audioEnded()"></audio>

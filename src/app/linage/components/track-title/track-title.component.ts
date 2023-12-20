@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class TrackTitleComponent {
   @Input({ required: true }) title?: string;
   @Input({ required: true }) number?: string;
+  @Input() public whiteBackground: boolean = false;
 }
