@@ -12,27 +12,4 @@ export class Chapter1PageComponent {
   handleEmit() {
     this.onTrackChange.emit(this.pageIndex);
   }
-
-  // public images = [
-  //   {
-  //     url: 'assets/image1.png',
-  //     title: 'Image 1',
-  //   },
-  //   {
-  //     url: 'assets/image2.png',
-  //     title: 'Image 2',
-  //   },
-  //   {
-  //     url: 'assets/image3.png',
-  //     title: 'Image 3',
-  //   },
-  //   {
-  //     url: 'assets/image4.png',
-  //     title: 'Image 4',
-  //   },
-  //   {
-  //     url: 'assets/image5.png',
-  //     title: 'Image 5',
-  //   },
-  // ];
 }

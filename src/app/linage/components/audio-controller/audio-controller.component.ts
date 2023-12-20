@@ -32,17 +32,37 @@ export class AudioControllerComponent {
     {
       number: '00',
       title: 'Intro',
-      url: 'assets/01.mp3',
+      url: 'assets/00.mp3',
     },
     {
       number: '01',
-      title: 'La Cristiandad en mi familia',
-      url: 'assets/02.mp3',
+      title: 'La era pre-occidente',
+      url: 'assets/01.mp3',
     },
     {
       number: '02',
-      title: 'This is track 3',
+      title: 'La llegada a Amsterdam',
+      url: 'assets/02.mp3',
+    },
+    {
+      number: '03',
+      title: 'Las que volvieron',
       url: 'assets/03.mp3',
+    },
+    {
+      number: '04',
+      title: 'Nuestras reliquias familiares',
+      url: 'assets/04.mp3',
+    },
+    {
+      number: '05',
+      title: 'Arte sin dueña',
+      url: 'assets/05.mp3',
+    },
+    {
+      number: '06',
+      title: 'Artist statement',
+      url: 'assets/06.mp3',
     },
   ];
 
