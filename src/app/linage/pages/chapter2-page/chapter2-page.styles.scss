@@ -1,54 +1,44 @@
-div {
+.chapter-container {
   background-color: white;
   display: flex;
   flex-direction: column;
+
   .text {
-    margin: 3rem 6rem 6rem 3rem;
+    margin: 5rem auto 0 auto;
+    text-align: center;
     h2 {
       font-family: "YoungSerif";
-      font-weight: bold;
-      margin-right: 4rem;
+      font-size: 2.5rem;
+      font-weight: 600;
     }
     h3 {
-      font-size: 1.2rem;
-      margin-right: 3rem;
+      margin: 1.5rem 18%;
+      text-align: justify;
+      color: #d9d9d9;
     }
+  }
+
+  linage-track-title {
+    margin: 0 auto;
   }
 
   .images {
     position: relative;
-    .main-image {
+    text-align: center;
+    .main {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .background {
+      margin-top: 10rem;
       width: 100%;
       display: block;
-      padding-left: 3rem;
-    }
-
-    .top-left {
-      width: 35%;
-      position: absolute;
-      top: -6rem;
-      left: 1.8rem;
-    }
-
-    .bottom-right {
-      width: 30%;
-      position: absolute;
-      bottom: -4rem;
-      right: 2.2rem;
-    }
-  }
-
-  .audio-title {
-    margin: 2rem;
-    margin-top: 8rem;
-    h3 {
-      font-weight: lighter;
-      font-size: 1.3rem;
-      text-align: center;
-      padding: 1rem;
-      background-color: black;
-      color: white;
-      border-radius: 0.5rem;
+      position: relative;
+      z-index: 1;
     }
   }
 }

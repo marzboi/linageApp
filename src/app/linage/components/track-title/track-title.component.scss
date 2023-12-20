@@ -1,0 +1,36 @@
+.audio-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .number {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    hr {
+      width: 70px;
+      margin: 1rem;
+    }
+
+    h3 {
+      font-weight: lighter;
+      font-size: 1.4rem;
+      margin: 0;
+    }
+  }
+
+  .title {
+    margin: 1rem auto;
+    h3 {
+      font-size: 1rem;
+      font-weight: lighter;
+      text-align: center;
+      padding: 1rem;
+      background-color: white;
+      color: black;
+      border-radius: 0.5rem;
+    }
+  }
+}
