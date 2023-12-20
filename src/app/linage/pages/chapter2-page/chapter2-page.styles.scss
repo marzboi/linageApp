@@ -21,4 +21,24 @@
   linage-track-title {
     margin: 0 auto;
   }
+
+  .images {
+    position: relative;
+    text-align: center;
+    .main {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .background {
+      margin-top: 10rem;
+      width: 100%;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+  }
 }
