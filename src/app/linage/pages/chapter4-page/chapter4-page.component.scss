@@ -18,4 +18,34 @@
   linage-track-title {
     margin: 3rem auto;
   }
+
+  .images {
+    position: relative;
+    margin-bottom: 6rem;
+
+    .left-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 90%;
+      margin-left: 1.5rem;
+      z-index: 2;
+    }
+
+    .hat-background {
+      position: relative;
+      z-index: 1;
+      scale: 1.1;
+      left: 70px;
+      top: 20px;
+    }
+
+    .hat {
+      position: relative;
+      z-index: 3;
+      scale: 1.1;
+      left: 71px;
+      top: 293px;
+    }
+  }
 }

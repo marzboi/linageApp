@@ -18,4 +18,7 @@
 <linage-chapter5-page appInView (inView)="onElementInView($event)"
   (onTrackChange)="setCurrentTrackIndex($event)"></linage-chapter5-page>
 
+<linage-chapter6-page appInView (inView)="onElementInView($event)"
+  (onTrackChange)="setCurrentTrackIndex($event)"></linage-chapter6-page>
+
 <linage-audio-controller *ngIf="showAudioController" [index]="currentTrackIndex"></linage-audio-controller>
