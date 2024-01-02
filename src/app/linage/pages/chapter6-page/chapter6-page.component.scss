@@ -4,11 +4,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  justify-content: space-between;
   .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 600px;
     background: url("../../../../assets/ch6background.png");
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-position: center; /* Centers the image in the element */
     background-size: cover;
+
+    h3 {
+      margin: 3rem 0.5rem 0 0.5rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
   }
 }
