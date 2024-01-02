@@ -1,6 +1,6 @@
 <div class="body" *ngIf="!minimized;else smallDisplay">
   <div class="close" (click)="toggleMinimized()">
-    <span>Botton</span>
+    <mat-icon>expand_more</mat-icon>
   </div>
 
   <div class="media-player" *ngIf="currentTrack">
@@ -37,7 +37,7 @@
 
   <div class="closed-body">
     <div class="open" (click)="toggleMinimized()">
-      <span>Botton</span>
+      <mat-icon>expand_less</mat-icon>
     </div>
 
     <div class="closed-media-player" *ngIf="currentTrack">
