@@ -28,6 +28,8 @@
       margin: 0 auto;
 
       .progress-bar-container {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         border-radius: 1rem;
         border: 1px solid white;
@@ -35,7 +37,7 @@
         cursor: pointer;
         height: 0.5rem;
         .progress-bar-filled {
-          height: 0.41rem;
+          height: 1rem;
           border-radius: 1rem;
           border: 1px solid white;
           background: white;
