@@ -1,0 +1,15 @@
+.body {
+  color: white;
+  background-color: black;
+  position: sticky;
+  width: 100%;
+  z-index: 5;
+  opacity: 0.9;
+  top: 0;
+
+  .locale {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 1rem;
+  }
+}
