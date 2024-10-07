@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./linage/linage.module').then((m) => m.LinageModule),
+      import('./linaje/linaje.module').then((m) => m.linajeModule),
   },
   { path: '**', redirectTo: 'home' },
 ];

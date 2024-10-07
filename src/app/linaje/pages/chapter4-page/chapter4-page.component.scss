@@ -1,0 +1,51 @@
+.body {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  h2 {
+    font-size: 2.6rem;
+    font-family: "YoungSerif";
+    font-weight: 700;
+    margin: 4rem auto 1rem auto;
+  }
+
+  h3 {
+    margin: 0 10%;
+  }
+
+  linaje-track-title {
+    margin: 3rem auto;
+  }
+
+  .images {
+    position: relative;
+    margin-bottom: 6rem;
+
+    .left-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 90%;
+      margin-left: 1rem;
+      z-index: 2;
+    }
+
+    .hat-background {
+      position: relative;
+      z-index: 1;
+      scale: 1.05;
+      left: 70px;
+      top: 20px;
+    }
+
+    .hat {
+      position: relative;
+      z-index: 3;
+      scale: 1.1;
+      left: 72px;
+      top: 240px;
+    }
+  }
+}

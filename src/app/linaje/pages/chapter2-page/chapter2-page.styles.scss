@@ -1,0 +1,46 @@
+.chapter-container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+
+  .text {
+    margin: 5rem auto 0 auto;
+    text-align: center;
+    h2 {
+      font-family: "YoungSerif";
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    div {
+      margin: 1.3rem 12% 4rem 12%;
+      h3 {
+        color: #727070;
+        text-align: left;
+      }
+    }
+  }
+
+  linaje-track-title {
+    margin: 0 auto;
+  }
+
+  .images {
+    position: relative;
+    text-align: center;
+    .main {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
+    .background {
+      margin-top: 10rem;
+      width: 100%;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
