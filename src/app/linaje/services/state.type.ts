@@ -6,8 +6,8 @@ export interface State {
       subtitle: string;
     };
     messagePage: {
-      paragraph1: string;
-      paragraph2: string;
+      paragraphOne: string;
+      paragraphTwo: string;
       audioTitle: string;
     };
   };
