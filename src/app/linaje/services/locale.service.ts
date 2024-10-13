@@ -20,7 +20,7 @@ export class LocaleService {
   public changeLocale() {
     this.#state.set({
       currentLocale: this.currentLocale() === 'es' ? 'en' : 'es',
-      localeContent: this.currentLocale() === 'es' ? es : en,
+      localeContent: this.currentLocale() === 'es' ? en : es,
     });
   }
 }

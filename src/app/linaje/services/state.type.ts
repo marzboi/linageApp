@@ -10,5 +10,10 @@ export interface State {
       paragraphTwo: string;
       audioTitle: string;
     };
+    audioController: {
+      trackTitle: string;
+      next: string;
+      previous: string;
+    };
   };
 }
