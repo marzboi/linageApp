@@ -1,11 +1,6 @@
 import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { LocaleService } from '../../services/locale.service';
 
-interface emittedObject {
-  pageIndex: number;
-  title: string;
-}
-
 @Component({
   selector: 'linaje-message-page',
   templateUrl: './message-page.component.html',

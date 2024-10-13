@@ -4,7 +4,7 @@
   </div>
 
   <div class="media-player" *ngIf="currentTrack">
-    <div class="title">{{this.currentTrack.title}}</div>
+    <div class="title">{{currentTrack()?.title}}</div>
 
     <div class="bar">
       <div class="progress-bar-container" (click)="seek($event)">
@@ -41,7 +41,7 @@
     </div>
 
     <div class="closed-media-player" *ngIf="currentTrack">
-      <div class="title">{{this.currentTrack.title}}</div>
+      <div class="title">{{currentTrack()?.title}}</div>
     </div>
 
     <div>
@@ -53,5 +53,5 @@
 </ng-template>
 
 
-<audio *ngIf="currentTrack" #audioPlayer [src]="currentTrack.url" (timeupdate)="updateProgress()"
+<audio *ngIf="currentTrack" #audioPlayer [src]="currentTrack()?.url" (timeupdate)="updateProgress()"
   (loadedmetadata)="metadataLoaded()" (ended)="audioEnded()"></audio>

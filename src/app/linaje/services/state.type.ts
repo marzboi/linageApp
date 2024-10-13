@@ -1,3 +1,5 @@
+import { AudioTrack } from './audioTracks';
+
 export interface State {
   currentLocale: 'es' | 'en';
   localeContent: {
@@ -16,4 +18,5 @@ export interface State {
       previous: string;
     };
   };
+  audioTracks: AudioTrack[];
 }
