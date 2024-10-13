@@ -12,8 +12,11 @@ export interface State {
       paragraphTwo: string;
       audioTitle: string;
     };
+    chapterOne: {
+      title: string;
+      subtitle: string;
+    };
     audioController: {
-      trackTitle: string;
       next: string;
       previous: string;
     };

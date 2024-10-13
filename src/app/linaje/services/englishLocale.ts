@@ -8,8 +8,11 @@ export const en = {
     paragraphTwo: `I recommend putting on some headphones and relaxing to enjoy the story.`,
     audioTitle: `Audio 00 Intro`,
   },
+  chapterOne: {
+    title: 'La cristiandad en mi familia',
+    subtitle: 'Occidente entró en forma de religión cristiana',
+  },
   audioController: {
-    trackTitle: 'Track',
     next: 'Next',
     previous: 'Previous',
   },

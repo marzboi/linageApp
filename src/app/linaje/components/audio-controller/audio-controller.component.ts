@@ -8,7 +8,6 @@ import {
   ChangeDetectorRef,
   inject,
   signal,
-  effect,
   computed,
 } from '@angular/core';
 
@@ -30,20 +29,24 @@ export class AudioControllerComponent {
   @Input() index: number = 0;
   @ViewChild('audioPlayer') audioPlayerRef?: ElementRef;
 
-  audioPlaying: boolean = false;
   currentTime: number = 0;
   duration: number = 0;
   minimized: boolean = false;
 
   private currentIndex = signal(0);
+  private isPlayingSignal = signal(false);
 
   currentTrack = computed(() => {
     const tracks = this.LocaleService.audioTracks();
     return tracks[this.currentIndex()];
   });
 
-  get trackTitle(): string {
-    return this.LocaleService.localeContent().audioController.trackTitle;
+  get audioPlaying(): boolean {
+    return this.isPlayingSignal();
+  }
+
+  set audioPlaying(value: boolean) {
+    this.isPlayingSignal.set(value);
   }
 
   get next(): string {
@@ -71,7 +74,6 @@ export class AudioControllerComponent {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['index'] && changes['index'].currentValue !== undefined) {
       this.selectTrack(changes['index'].currentValue);
-      this.audioPlaying = false;
     }
   }
 
@@ -80,11 +82,17 @@ export class AudioControllerComponent {
       this.currentIndex.set(index);
       this.audioPlaying = false;
       this.cdRef.detectChanges();
+      if (this.audioPlayerRef) {
+        this.audioPlayerRef.nativeElement.load();
+      }
     }
   }
 
-  changeTrack(index: number): void {
-    this.selectTrack(index);
+  changeTrack(change: number): void {
+    const newIndex = this.currentIndex() + change;
+    if (newIndex >= 0 && newIndex < this.tracks.length) {
+      this.selectTrack(newIndex);
+    }
   }
 
   playAudio(): void {
@@ -92,8 +100,15 @@ export class AudioControllerComponent {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
       audio
         .play()
-        .then(() => (this.audioPlaying = true))
-        .catch(() => (this.audioPlaying = false));
+        .then(() => {
+          this.audioPlaying = true;
+          this.cdRef.detectChanges();
+        })
+        .catch((error) => {
+          console.error('Error playing audio:', error);
+          this.audioPlaying = false;
+          this.cdRef.detectChanges();
+        });
     }
   }
 
@@ -102,6 +117,7 @@ export class AudioControllerComponent {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
       audio.pause();
       this.audioPlaying = false;
+      this.cdRef.detectChanges();
     }
   }
 
@@ -122,7 +138,6 @@ export class AudioControllerComponent {
     }
     return 0;
   }
-
   metadataLoaded(): void {
     if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
       this.duration = this.audioPlayerRef.nativeElement.duration;
@@ -169,8 +184,8 @@ export class AudioControllerComponent {
     return 0;
   }
 
-  audioEnded(): void {
+  onAudioEnded(): void {
     this.audioPlaying = false;
-    this.currentTime = 0;
+    this.cdRef.detectChanges();
   }
 }
