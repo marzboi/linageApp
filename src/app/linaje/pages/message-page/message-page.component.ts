@@ -8,7 +8,6 @@ import { LocaleService } from '../../services/locale.service';
 })
 export class MessagePageComponent {
   localeService = inject(LocaleService);
-  @Output() onTrackChange: EventEmitter<number> = new EventEmitter<number>();
   private pageIndex: number = 0;
 
   get paragraphOne() {
@@ -23,7 +22,8 @@ export class MessagePageComponent {
     return this.localeService.localeContent().messagePage.audioTitle;
   }
 
-  handleEmit() {
-    this.onTrackChange.emit(this.pageIndex);
+  changeTrack() {
+    this.localeService.changeTrack(this.pageIndex);
+    console.log(this.pageIndex);
   }
 }

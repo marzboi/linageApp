@@ -22,4 +22,5 @@ export interface State {
     };
   };
   audioTracks: AudioTrack[];
+  track: AudioTrack;
 }
