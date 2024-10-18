@@ -24,6 +24,5 @@ export class MessagePageComponent {
 
   changeTrack() {
     this.localeService.changeTrack(this.pageIndex);
-    console.log(this.pageIndex);
   }
 }
