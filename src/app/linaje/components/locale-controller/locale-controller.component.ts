@@ -1,4 +1,4 @@
-import { Component, Inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LocaleService } from '../../services/locale.service';
 
 @Component({
@@ -6,4 +6,6 @@ import { LocaleService } from '../../services/locale.service';
   templateUrl: `./locale-controller.component.html`,
   styleUrls: ['./locale-controller.component.scss'],
 })
-export class LocaleControllerComponent {}
+export class LocaleControllerComponent {
+  localeService = inject(LocaleService);
+}

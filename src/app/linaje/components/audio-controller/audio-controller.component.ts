@@ -1,3 +1,4 @@
+import { LocaleService } from '../../services/locale.service';
 import {
   Component,
   ElementRef,
@@ -5,6 +6,9 @@ import {
   SimpleChanges,
   ViewChild,
   ChangeDetectorRef,
+  inject,
+  signal,
+  computed,
 } from '@angular/core';
 
 interface AudioTrack {
@@ -19,54 +23,43 @@ interface AudioTrack {
   styleUrls: ['./audio-controller.styles.scss'],
 })
 export class AudioControllerComponent {
+  LocaleService = inject(LocaleService);
+  cdRef = inject(ChangeDetectorRef);
+
   @Input() index: number = 0;
   @ViewChild('audioPlayer') audioPlayerRef?: ElementRef;
-  audioPlaying: boolean = false;
+
   currentTime: number = 0;
   duration: number = 0;
   minimized: boolean = false;
 
-  constructor(private cdRef: ChangeDetectorRef) {}
+  private currentIndex = signal(0);
+  private isPlayingSignal = signal(false);
 
-  tracks: AudioTrack[] = [
-    {
-      number: '00',
-      title: 'Intro',
-      url: 'assets/00.mp3',
-    },
-    {
-      number: '01',
-      title: 'La era pre-occidente',
-      url: 'assets/01.mp3',
-    },
-    {
-      number: '02',
-      title: 'La llegada a Amsterdam',
-      url: 'assets/02.mp3',
-    },
-    {
-      number: '03',
-      title: 'Las que volvieron',
-      url: 'assets/03.mp3',
-    },
-    {
-      number: '04',
-      title: 'Nuestras reliquias familiares',
-      url: 'assets/04.mp3',
-    },
-    {
-      number: '05',
-      title: 'Arte sin dueña',
-      url: 'assets/05.mp3',
-    },
-    {
-      number: '06',
-      title: 'Artist statement',
-      url: 'assets/06.mp3',
-    },
-  ];
+  currentTrack = computed(() => {
+    const tracks = this.LocaleService.audioTracks();
+    return tracks[this.currentIndex()];
+  });
 
-  currentTrack?: AudioTrack;
+  get audioPlaying(): boolean {
+    return this.isPlayingSignal();
+  }
+
+  set audioPlaying(value: boolean) {
+    this.isPlayingSignal.set(value);
+  }
+
+  get next(): string {
+    return this.LocaleService.localeContent().audioController.next;
+  }
+
+  get previous(): string {
+    return this.LocaleService.localeContent().audioController.previous;
+  }
+
+  get tracks(): AudioTrack[] {
+    return this.LocaleService.audioTracks();
+  }
 
   toggleMinimized(): void {
     this.minimized = !this.minimized;
@@ -81,21 +74,24 @@ export class AudioControllerComponent {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['index'] && changes['index'].currentValue !== undefined) {
       this.selectTrack(changes['index'].currentValue);
-      this.audioPlaying = false;
     }
   }
 
   selectTrack(index: number): void {
-    this.currentTrack = this.tracks[index];
-    this.audioPlaying = false;
+    if (index >= 0 && index < this.tracks.length) {
+      this.currentIndex.set(index);
+      this.audioPlaying = false;
+      this.cdRef.detectChanges();
+      if (this.audioPlayerRef) {
+        this.audioPlayerRef.nativeElement.load();
+      }
+    }
   }
 
-  changeTrack(index: number): void {
-    console.log(this.index, 'principio');
-    if (index >= 0 && index < this.tracks.length) {
-      this.index = index;
-      this.selectTrack(index);
-      this.audioPlaying = false;
+  changeTrack(change: number): void {
+    const newIndex = this.currentIndex() + change;
+    if (newIndex >= 0 && newIndex < this.tracks.length) {
+      this.selectTrack(newIndex);
     }
   }
 
@@ -104,8 +100,15 @@ export class AudioControllerComponent {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
       audio
         .play()
-        .then(() => (this.audioPlaying = true))
-        .catch(() => (this.audioPlaying = false));
+        .then(() => {
+          this.audioPlaying = true;
+          this.cdRef.detectChanges();
+        })
+        .catch((error) => {
+          console.error('Error playing audio:', error);
+          this.audioPlaying = false;
+          this.cdRef.detectChanges();
+        });
     }
   }
 
@@ -114,6 +117,7 @@ export class AudioControllerComponent {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
       audio.pause();
       this.audioPlaying = false;
+      this.cdRef.detectChanges();
     }
   }
 
@@ -134,7 +138,6 @@ export class AudioControllerComponent {
     }
     return 0;
   }
-
   metadataLoaded(): void {
     if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
       this.duration = this.audioPlayerRef.nativeElement.duration;
@@ -155,9 +158,6 @@ export class AudioControllerComponent {
     if (this.audioPlayerRef && this.audioPlayerRef.nativeElement) {
       const audio: HTMLAudioElement = this.audioPlayerRef.nativeElement;
       audio.currentTime = time;
-      // if (!this.audioPlaying) {
-      //   this.playAudio();
-      // }
     }
   }
 
@@ -184,8 +184,8 @@ export class AudioControllerComponent {
     return 0;
   }
 
-  audioEnded(): void {
+  onAudioEnded(): void {
     this.audioPlaying = false;
-    this.currentTime = 0;
+    this.cdRef.detectChanges();
   }
 }
