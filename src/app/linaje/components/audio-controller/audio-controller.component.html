@@ -53,5 +53,5 @@
 </ng-template>
 
 
-<audio *ngIf="currentTrack" #audioPlayer [src]="currentTrack()?.url" (timeupdate)="updateProgress()"
+<audio *ngIf="currentTrack" #audioPlayer [src]="currentTrack().url" (timeupdate)="updateProgress()"
   (loadedmetadata)="metadataLoaded()" (ended)="onAudioEnded()"></audio>
