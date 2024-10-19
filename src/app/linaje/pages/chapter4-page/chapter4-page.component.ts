@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LocaleService } from '../../services/locale.service';
 
 @Component({
   selector: 'linaje-chapter4-page',
@@ -6,10 +7,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./chapter4-page.component.scss'],
 })
 export class Chapter4PageComponent {
-  @Output() onTrackChange: EventEmitter<number> = new EventEmitter<number>();
+  localeService = inject(LocaleService);
   private pageIndex: number = 4;
 
-  handleEmit() {
-    this.onTrackChange.emit(this.pageIndex);
+  changeTrack() {
+    this.localeService.changeTrack(this.pageIndex);
   }
 }
