@@ -26,6 +26,9 @@ export const es = {
   chapterFive: {
     title: 'Las artistas que no fuímos',
   },
+  chapterSix: {
+    title: 'Todas las personas que me conforman, gracias a las cuales, soy.',
+  },
   audioController: {
     next: 'Siguiente',
     previous: 'Anterior',

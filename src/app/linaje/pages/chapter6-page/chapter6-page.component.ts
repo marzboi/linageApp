@@ -10,6 +10,14 @@ export class Chapter6PageComponent {
   localeService = inject(LocaleService);
   private pageIndex: number = 6;
 
+  get title() {
+    return this.localeService.localeContent().chapterOne.title;
+  }
+
+  get audioTitle() {
+    return this.localeService.audioTracks()[this.pageIndex].title;
+  }
+
   changeTrack() {
     this.localeService.changeTrack(this.pageIndex);
   }

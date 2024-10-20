@@ -26,6 +26,9 @@ export const en = {
   chapterFive: {
     title: 'The Artists We Never Became',
   },
+  chapterSix: {
+    title: 'All the People Who Make Me, Thanks to Whom, I Am.',
+  },
   audioController: {
     next: 'Next',
     previous: 'Previous',

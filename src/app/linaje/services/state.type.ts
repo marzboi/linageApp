@@ -30,6 +30,9 @@ export interface State {
     chapterFive: {
       title: string;
     };
+    chapterSix: {
+      title: string;
+    };
     audioController: {
       next: string;
       previous: string;
