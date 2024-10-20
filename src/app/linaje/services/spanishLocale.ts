@@ -11,6 +11,10 @@ export const es = {
     title: 'La cristiandad en mi familia',
     subtitle: 'Occidente entró en forma de religión cristiana',
   },
+  chapterTwo: {
+    title: 'La primera migración a Europa',
+    subtitle: 'De Qintiang a Amsterdam en 1930 aproximadamente',
+  },
   audioController: {
     next: 'Siguiente',
     previous: 'Anterior',

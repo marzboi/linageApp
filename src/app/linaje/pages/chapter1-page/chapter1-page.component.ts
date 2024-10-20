@@ -19,8 +19,7 @@ export class Chapter1PageComponent {
   }
 
   get audioTitle() {
-    const track = this.localeService.audioTracks()[this.pageIndex];
-    return `Audio ${track.number} ${track.title}`;
+    return this.localeService.audioTracks()[this.pageIndex].title;
   }
 
   changeTrack() {

@@ -15,6 +15,10 @@ export interface State {
       title: string;
       subtitle: string;
     };
+    chapterTwo: {
+      title: string;
+      subtitle: string;
+    };
     audioController: {
       next: string;
       previous: string;

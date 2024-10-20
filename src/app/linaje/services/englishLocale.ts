@@ -11,6 +11,11 @@ export const en = {
     title: 'Christianity in My Family',
     subtitle: 'The West Came in the Form of Christian Religion',
   },
+  chapterTwo: {
+    title: 'The First Migration to Europe',
+    subtitle: 'From Qintiang to Amsterdam Around 1930',
+  },
+
   audioController: {
     next: 'Next',
     previous: 'Previous',
