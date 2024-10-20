@@ -11,7 +11,7 @@ export class Chapter6PageComponent {
   private pageIndex: number = 6;
 
   get title() {
-    return this.localeService.localeContent().chapterOne.title;
+    return this.localeService.localeContent().chapterSix.title;
   }
 
   get audioTitle() {
