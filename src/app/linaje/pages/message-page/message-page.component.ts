@@ -19,7 +19,8 @@ export class MessagePageComponent {
   }
 
   get audioTitle() {
-    return this.localeService.localeContent().messagePage.audioTitle;
+    const track = this.localeService.audioTracks()[this.pageIndex];
+    return `Audio ${track.number} ${track.title}`;
   }
 
   changeTrack() {

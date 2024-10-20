@@ -10,7 +10,6 @@ export interface State {
     messagePage: {
       paragraphOne: string;
       paragraphTwo: string;
-      audioTitle: string;
     };
     chapterOne: {
       title: string;
