@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LocaleService } from '../../services/locale.service';
 
 @Component({
@@ -8,7 +8,6 @@ import { LocaleService } from '../../services/locale.service';
 })
 export class MessagePageComponent {
   localeService = inject(LocaleService);
-  @Output() onTrackChange: EventEmitter<number> = new EventEmitter<number>();
   private pageIndex: number = 0;
 
   get paragraphOne() {
@@ -20,10 +19,11 @@ export class MessagePageComponent {
   }
 
   get audioTitle() {
-    return this.localeService.localeContent().messagePage.audioTitle;
+    const track = this.localeService.audioTracks()[this.pageIndex];
+    return `Audio ${track.number} ${track.title}`;
   }
 
-  handleEmit() {
-    this.onTrackChange.emit(this.pageIndex);
+  changeTrack() {
+    this.localeService.changeTrack(this.pageIndex);
   }
 }

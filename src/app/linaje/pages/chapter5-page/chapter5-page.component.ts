@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { LocaleService } from '../../services/locale.service';
 
 @Component({
   selector: 'linaje-chapter5-page',
@@ -6,10 +7,18 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./chapter5-page.component.scss'],
 })
 export class Chapter5PageComponent {
-  @Output() onTrackChange: EventEmitter<number> = new EventEmitter<number>();
+  localeService = inject(LocaleService);
   private pageIndex: number = 5;
 
-  handleEmit() {
-    this.onTrackChange.emit(this.pageIndex);
+  get title() {
+    return this.localeService.localeContent().chapterOne.title;
+  }
+
+  get audioTitle() {
+    return this.localeService.audioTracks()[this.pageIndex].title;
+  }
+
+  changeTrack() {
+    this.localeService.changeTrack(this.pageIndex);
   }
 }

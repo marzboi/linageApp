@@ -2,8 +2,6 @@ import { LocaleService } from '../../services/locale.service';
 import {
   Component,
   ElementRef,
-  Input,
-  SimpleChanges,
   ViewChild,
   ChangeDetectorRef,
   inject,
@@ -26,19 +24,20 @@ export class AudioControllerComponent {
   LocaleService = inject(LocaleService);
   cdRef = inject(ChangeDetectorRef);
 
-  @Input() index: number = 0;
   @ViewChild('audioPlayer') audioPlayerRef?: ElementRef;
 
   currentTime: number = 0;
   duration: number = 0;
   minimized: boolean = false;
 
-  private currentIndex = signal(0);
   private isPlayingSignal = signal(false);
 
+  get index(): number {
+    return this.LocaleService.currentIndex();
+  }
+
   currentTrack = computed(() => {
-    const tracks = this.LocaleService.audioTracks();
-    return tracks[this.currentIndex()];
+    return this.LocaleService.currentTrack();
   });
 
   get audioPlaying(): boolean {
@@ -65,33 +64,10 @@ export class AudioControllerComponent {
     this.minimized = !this.minimized;
   }
 
-  ngOnInit(): void {
-    if (this.index === undefined && this.tracks.length > 0) {
-      this.selectTrack(0);
-    }
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['index'] && changes['index'].currentValue !== undefined) {
-      this.selectTrack(changes['index'].currentValue);
-    }
-  }
-
-  selectTrack(index: number): void {
-    if (index >= 0 && index < this.tracks.length) {
-      this.currentIndex.set(index);
-      this.audioPlaying = false;
-      this.cdRef.detectChanges();
-      if (this.audioPlayerRef) {
-        this.audioPlayerRef.nativeElement.load();
-      }
-    }
-  }
-
-  changeTrack(change: number): void {
-    const newIndex = this.currentIndex() + change;
+  handleChangeTrack(change: number): void {
+    const newIndex = this.index + change;
     if (newIndex >= 0 && newIndex < this.tracks.length) {
-      this.selectTrack(newIndex);
+      this.LocaleService.changeTrack(newIndex);
     }
   }
 

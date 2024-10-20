@@ -1,7 +1,7 @@
 <div class="body">
-  <h2>Las artistas que no fuímos</h2>
+  <h2>{{ title }}</h2>
 
-  <linaje-track-title title="Arte sin dueña" number="05" (click)="handleEmit()" />
+  <linaje-track-title title="{{ audioTitle }}" number="05" (click)="changeTrack()" />
 
   <div id="carousellinaje2" class="carousel slide">
     <div class="carousel-inner">

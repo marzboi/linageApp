@@ -10,11 +10,28 @@ export interface State {
     messagePage: {
       paragraphOne: string;
       paragraphTwo: string;
-      audioTitle: string;
     };
     chapterOne: {
       title: string;
       subtitle: string;
+    };
+    chapterTwo: {
+      title: string;
+      subtitle: string;
+    };
+    chapterThree: {
+      title: string;
+      subtitle: string;
+    };
+    chapterFour: {
+      title: string;
+      subtitle: string;
+    };
+    chapterFive: {
+      title: string;
+    };
+    chapterSix: {
+      title: string;
     };
     audioController: {
       next: string;
@@ -22,4 +39,5 @@ export interface State {
     };
   };
   audioTracks: AudioTrack[];
+  track: AudioTrack;
 }

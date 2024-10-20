@@ -39,7 +39,7 @@ export const getAudioTracks = (locale: 'es' | 'en'): AudioTrack[] => {
       },
       {
         number: '06',
-        title: 'Artist statement',
+        title: 'Artist Statement',
         url: 'assets/es/06.mp3',
       },
     ],
