@@ -23,6 +23,9 @@ export const es = {
     title: 'Nuestras reliquias',
     subtitle: 'Heredadas de mujer a mujer, historias olvidadas',
   },
+  chapterFive: {
+    title: 'Las artistas que no fuímos',
+  },
   audioController: {
     next: 'Siguiente',
     previous: 'Anterior',

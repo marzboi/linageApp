@@ -27,6 +27,9 @@ export interface State {
       title: string;
       subtitle: string;
     };
+    chapterFive: {
+      title: string;
+    };
     audioController: {
       next: string;
       previous: string;

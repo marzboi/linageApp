@@ -23,6 +23,9 @@ export const en = {
     title: 'Our Relics',
     subtitle: 'Inherited from Woman to Woman, Forgotten Stories',
   },
+  chapterFive: {
+    title: 'The Artists We Never Became',
+  },
   audioController: {
     next: 'Next',
     previous: 'Previous',
