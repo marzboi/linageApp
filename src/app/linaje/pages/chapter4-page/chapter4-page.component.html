@@ -1,9 +1,8 @@
 <div class="body">
-  <h2>Nuestras reliquias</h2>
-  <h3>Heredadas de mujer a mujer, historias olvidadas</h3>
+  <h2>{{ title }}</h2>
+  <h3>{{ subtitle }}</h3>
 
-  <linaje-track-title title="Nuestras reliquias familiares" number="04" (click)="changeTrack()"
-    [whiteBackground]="true" />
+  <linaje-track-title title="{{audioTitle}}" number="04" (click)="changeTrack()" [whiteBackground]="true" />
 
   <div class="images">
     <img class="left-image" src="assets/image8.png" alt="...">

@@ -19,6 +19,10 @@ export const en = {
     title: 'The Return Without Photos or Writings',
     subtitle: 'The Great Leap Into the Void',
   },
+  chapterFour: {
+    title: 'Our Relics',
+    subtitle: 'Inherited from Woman to Woman, Forgotten Stories',
+  },
   audioController: {
     next: 'Next',
     previous: 'Previous',

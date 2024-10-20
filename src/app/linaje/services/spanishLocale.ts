@@ -19,6 +19,10 @@ export const es = {
     title: 'El retorno sin fotos ni escritos',
     subtitle: 'El gran salto hacia la nada',
   },
+  chapterFour: {
+    title: 'Nuestras reliquias',
+    subtitle: 'Heredadas de mujer a mujer, historias olvidadas',
+  },
   audioController: {
     next: 'Siguiente',
     previous: 'Anterior',
