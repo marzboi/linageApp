@@ -15,7 +15,10 @@ export const en = {
     title: 'The First Migration to Europe',
     subtitle: 'From Qintiang to Amsterdam Around 1930',
   },
-
+  chapterThree: {
+    title: 'The Return Without Photos or Writings',
+    subtitle: 'The Great Leap Into the Void',
+  },
   audioController: {
     next: 'Next',
     previous: 'Previous',

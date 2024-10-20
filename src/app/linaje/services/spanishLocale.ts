@@ -15,6 +15,10 @@ export const es = {
     title: 'La primera migración a Europa',
     subtitle: 'De Qintiang a Amsterdam en 1930 aproximadamente',
   },
+  chapterThree: {
+    title: 'El retorno sin fotos ni escritos',
+    subtitle: 'El gran salto hacia la nada',
+  },
   audioController: {
     next: 'Siguiente',
     previous: 'Anterior',
